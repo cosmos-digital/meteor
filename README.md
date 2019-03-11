@@ -1,37 +1,33 @@
-## Welcome to GitHub Pages
+# M E T E O R
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+  - System ERP to emit invoices and administrate little or middle business.
+##### For who
+  - This software is perfect for whom have one little or medium business and search a  software of easy use to emit invoices, administrate finances, customers and employees, or if you are a developer and want to start with robust software, easy-to-understand and with automated testing.
+#### Technologies you will find 
+- ##### API
+  - Language is PHP (Symfony 4)
+  - DB Relational is PostGres 
+  - DB NoSql is MongoDB
+  - DB Cache is Redis
+  - Message Queue is RabbitMQ
+ 
 
-You can use the [editor on GitHub](https://github.com/cosmos-digital/meteor/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+- ##### Web Client
+  - JavaScript (Angular 7)
+  - Nodejs
+- ##### Web Server
+  - HTTP Server is Nginx
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+#### Technologies you will need
+ - PHP >= 7.3
+ - PostGress >= 11.1
+ - MongoDB >= 4.0.5
+ - RabbitMQ >= 3.7.13
+ - Nodejs >= 10.15
+ - Nginx >= 1.15
 
-### Markdown
+All our services run on Docker containers, but if you like to suffer, you can ignore thereof.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/cosmos-digital/meteor/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+## Installation
+````

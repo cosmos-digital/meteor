@@ -42,7 +42,7 @@ services:
 
   #Service Renponsible for MESSAGE QUEUE
   rabbitmq:
-      image: cosmosdigital/rabbitmq:1.0.0
+      image: cosmosdigital/rabbitmq
       container_name: "meteor_rabbitmq"
       deploy:
         replicas: 2

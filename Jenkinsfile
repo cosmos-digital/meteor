@@ -12,7 +12,7 @@ pipeline {
                 sh 'echo $GIT_BRANCH'
                 sh 'echo $GIT_COMMIT'
                 echo 'Install non-dev composer packages and test a symfony cache clear'
-                sh 'docker-compose -f build.yml up --exit-code-from fpm_build --remove-orphans fpm_build'
+                sh 'docker-compose -f up --exit-code-from fpm_build --remove-orphans fpm_build'
                 echo 'Building the docker images with the current git commit'
             }
         }

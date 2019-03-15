@@ -17,7 +17,7 @@ pipeline {
       steps{
         sh 'DIR_ROOT=${PWD}'
         echo 'Composer... ${DIR_ROOT}'
-        sh 'cd $PWD/api/php/www \ composer install --ignore-platform-reqs --no-scripts'
+        sh 'cd $PWD/api/php/www && composer install --ignore-platform-reqs --no-scripts'
         echo 'Composer FINISHED'
         sh 'cd $DIR_ROOT'
         sh 'echo ${DIR_ROOT}'

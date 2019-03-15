@@ -1,5 +1,4 @@
 pipeline {
-    agent { label 'docker' }
     environment {
         // Specify your environment variables.
         APP_VERSION = '1'

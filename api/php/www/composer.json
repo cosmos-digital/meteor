@@ -10,7 +10,7 @@
     "name": "meteor/api",
     "description": "Meteor API Service",
     "keywords": [],
-    "homepage": "https://cosmosdigital.pt",
+    "homepage": "https://meteor.cosmosdigital.pt",
     "type": "project",
     "license": "proprietary",
     "require": {

@@ -15,9 +15,13 @@ pipeline {
     }
     stage('PHP'){
       steps{
+        sh 'DIR_ROOT=$PWD'
         echo 'Composer...'
-        sh 'docker run --rm --interactive --volume $PWD/api/php/www:/app composer install --ignore-platform-reqs --no-scripts'
+        sh 'cd $DIR_ROOT/api/php/www'
+        sh 'composer install --ignore-platform-reqs --no-scripts'
         echo 'Composer FINISHED'
+        sh 'cd $DIR_ROOT'
+        sh 'echo ${DIR_ROOT}'
       }
     }
     stage('Test') {

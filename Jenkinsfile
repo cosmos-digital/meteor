@@ -13,8 +13,8 @@ pipeline {
                 sh 'echo $GIT_COMMIT'
                 echo 'Install non-dev composer packages and test a symfony cache clear'
                 sh 'ls'
-                echo '$PWD'
-                sh 'docker-compose up'
+                sh 'echo ${PWD}'
+                sh 'docker-compose up -d'
                 echo 'Building the docker images with the current git commit'
             }
         }

@@ -34,9 +34,7 @@ pipeline {
     post {
         always {
             // Always cleanup after the build.
-            sh 'docker-compose -f build.yml down'
-            sh 'docker-compose -f test.yml down'
-            sh 'rm .env'
+            sh 'rm .md'
         }
     }
 }

@@ -22,7 +22,7 @@ pipeline {
     stage('Push') {
       agent any
       when {
-        branch 'master'
+        branch 'dev-master'
       }
       steps {
         echo 'Deploying docker images'

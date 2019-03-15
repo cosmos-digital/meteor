@@ -15,12 +15,8 @@ pipeline {
     }
     stage('PHP'){
       steps{
-        sh 'DIR_ROOT=$PWD'
         echo 'Composer... ${DIR_ROOT}'
-        sh 'cd $PWD/api/php/www && composer install --ignore-platform-reqs --no-scripts'
-        echo 'Composer FINISHED'
-        sh 'echo $DIR_ROOT'
-        sh 'echo ${PWD}'
+        sh 'cd ./api/php/www && composer install --ignore-platform-reqs --no-scripts'
       }
     }
     stage('Test') {
@@ -31,9 +27,6 @@ pipeline {
     }
     stage('Push') {
       agent any
-      when {
-        branch 'dev-master'
-      }
       steps {
         echo 'Deploying application'
         git(url: 'https://github.com/cosmos-digital/meteor.git', branch: 'jenkins', changelog: true, poll: true)

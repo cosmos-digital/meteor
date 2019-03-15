@@ -1,15 +1,10 @@
 pipeline {
-  agent any
-  stages {
-    stage('test_write') {
-      steps {
-        writeFile(file: 'test.txt', text: 'testeee', encoding: 'utf8')
-      }
+    agent { docker { image 'cosmosdigital/php-v7' } }
+    stages {
+        stage('build') {
+            steps {
+                sh 'php --version'
+            }
+        }
     }
-    stage('test_print') {
-      steps {
-        echo 'testandooo'
-      }
-    }
-  }
 }

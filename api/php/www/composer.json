@@ -1,10 +1,12 @@
 {
-    "authors": [{
-        "name": "Jeferson Kaefer",
-        "email": "jefersonkaefer@cosmosdigital.pt",
-        "homepage": "http://cosmosdigital.pt",
-        "role": "Developer"
-    }],
+    "authors": [
+        {
+            "name": "Jeferson Kaefer",
+            "email": "jefersonkaefer@cosmosdigital.pt",
+            "homepage": "http://cosmosdigital.pt",
+            "role": "Developer"
+        }
+    ],
     "name": "meteor/api",
     "description": "Meteor API Service",
     "keywords": [],
@@ -12,54 +14,7 @@
     "type": "project",
     "license": "proprietary",
     "require": {
-        "php": "^7.1.3",
-        "ext-ctype": "*",
-        "ext-iconv": "*",
-        "eightpoints/guzzle-bundle": "^7.4",
-        "php-amqplib/php-amqplib": "^2.8",
-        "php-amqplib/rabbitmq-bundle": "^1.14",
-        "symfony/console": "4.2.*",
-        "symfony/flex": "^1.1",
-        "symfony/framework-bundle": "4.2.*",
-        "symfony/messenger": "4.2.*",
-        "symfony/serializer-pack": "^1.0",
-        "symfony/translation": "4.2.*",
-        "symfony/validator": "4.2.*",
-        "symfony/yaml": "4.2.*",
-        "cosmosdigital/repositories": "^1"
-    },
-    "repositories": [{
-            "type": "vcs",
-            "url": "https://jefersonkaefer@bitbucket.org/cosmosdigital/repositories.git",
-            "options": {
-                "ssh2": {
-                    "username": "git",
-                    "pubkey_file": "/id_rsa.pub",
-                    "privkey_file": "/id_rsa"
-                }
-            }
-        },
-        {
-            "type": "vcs",
-            "url": "https://jefersonkaefer@bitbucket.org/cosmosdigital/logger.git",
-            "options": {
-                "ssh2": {
-                    "username": "git",
-                    "pubkey_file": "/id_rsa.pub",
-                    "privkey_file": "/id_rsa"
-                }
-            }
-        }
-    ],
-    "require-dev": {
-        "alcaeus/mongo-php-adapter": "^1.1",
-        "doctrine/doctrine-fixtures-bundle": "^3.0",
-        "phpunit/phpunit": "^7",
-        "squizlabs/php_codesniffer": "^3.4",
-        "symfony/browser-kit": "4.2.*",
-        "symfony/dotenv": "4.2.*",
-        "symfony/maker-bundle": "^1.9",
-        "symfony/phpunit-bridge": "4.2.*"
+        "php": "^7.3.3"
     },
     "config": {
         "preferred-install": {
@@ -72,42 +27,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Events\\": "src/Events/",
             "Meteor\\Api\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
             "Meteor\\Api\\Tests\\": "tests/"
-        }
-    },
-    "replace": {
-        "paragonie/random_compat": "2.*",
-        "symfony/polyfill-ctype": "*",
-        "symfony/polyfill-iconv": "*",
-        "symfony/polyfill-php71": "*",
-        "symfony/polyfill-php70": "*",
-        "symfony/polyfill-php56": "*"
-    },
-    "scripts": {
-        "auto-scripts": {
-            "cache:clear": "symfony-cmd",
-            "assets:install %PUBLIC_DIR%": "symfony-cmd"
-        },
-        "post-install-cmd": [
-            "@auto-scripts"
-        ],
-        "post-update-cmd": [
-            "@auto-scripts"
-        ]
-    },
-    "conflict": {
-        "symfony/symfony": "*"
-    },
-    "extra": {
-        "symfony": {
-            "allow-contrib": false,
-            "require": "4.2.*"
         }
     }
 }

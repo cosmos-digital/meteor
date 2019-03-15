@@ -34,7 +34,7 @@ pipeline {
     post {
         always {
             // Always cleanup after the build.
-            sh 'echoe always'
+            echo 'always'
         }
     }
 }

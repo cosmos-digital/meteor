@@ -15,9 +15,9 @@ pipeline {
     }
     stage('PHP'){
       steps{
-        sh 'DIR_ROOT=$PWD'
+        sh 'DIR_ROOT=${PWD}'
         echo 'Composer...'
-        sh 'cd $DIR_ROOT/api/php/www'
+        sh 'cd ${DIR_ROOT}/api/php/www'
         sh 'composer install --ignore-platform-reqs --no-scripts'
         echo 'Composer FINISHED'
         sh 'cd $DIR_ROOT'

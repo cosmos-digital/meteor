@@ -12,6 +12,7 @@ pipeline {
                 sh 'echo $GIT_BRANCH'
                 sh 'echo $GIT_COMMIT'
                 echo 'Install non-dev composer packages and test a symfony cache clear'
+                sh 'ls'
                 sh 'docker-compose up'
                 echo 'Building the docker images with the current git commit'
             }

@@ -13,6 +13,13 @@ pipeline {
         echo 'Building the docker images with the current git commit'
       }
     }
+    stage('PHP'){
+      steps{
+        echo 'Composer...'
+        sh 'docker run --rm --interactive --tty --volume $PWD/data/php/api:/app composer install --ignore-platform-reqs --no-scripts'
+        echo 'Composer FINISHED'
+      }
+    }
     stage('Test') {
       steps {
         echo 'PHP Unit tests'

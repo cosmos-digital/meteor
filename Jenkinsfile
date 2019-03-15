@@ -25,7 +25,7 @@ pipeline {
         branch 'dev-master'
       }
       steps {
-        echo 'Deploying docker images'
+        echo 'Deploying application'
         git(url: 'https://github.com/cosmos-digital/meteor.git', branch: 'jenkins', changelog: true, poll: true)
       }
     }

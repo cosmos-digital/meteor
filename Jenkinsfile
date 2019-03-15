@@ -1,4 +1,5 @@
 pipeline {
+    agent any
     environment {
         // Specify your environment variables.
         APP_VERSION = '1'

@@ -16,7 +16,7 @@ pipeline {
     stage('PHP'){
       steps{
         echo 'Composer...'
-        sh 'docker run --rm --interactive --volume $PWD/data/php/api:/app composer install --ignore-platform-reqs --no-scripts'
+        sh 'docker run --rm --interactive --volume $PWD/api/php/www:/app composer install --ignore-platform-reqs --no-scripts'
         echo 'Composer FINISHED'
       }
     }

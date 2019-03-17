@@ -13,10 +13,12 @@ pipeline {
         echo 'Building the docker images with the current git commit'
       }
     }
-    stage('PHP'){
-      steps{
+    stage('PHP') {
+      steps {
         echo 'Composer... ${DIR_ROOT}'
         sh 'cd ./api/php/www && composer install --ignore-platform-reqs --no-scripts'
+        git(url: 'https://github.com/cosmos-digital/meteor-api.git', branch: 'master', changelog: true)
+        input(message: 'Choice what branch of API should builded', id: 'BRANCH_API', ok: 'Next', submitter: 'text', submitterParameter: 'BRANCH_API')
       }
     }
     stage('Test') {

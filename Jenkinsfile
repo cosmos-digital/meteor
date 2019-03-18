@@ -14,7 +14,7 @@ pipeline {
         steps{
           echo 'Deploying application'
           dir('/data/php/api/www') {
-            checkout([$class: 'GitSCM', branches: [[name: 'orign/test']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '839539c2-0a78-4c53-a4b6-b71485543776', url: 'https://github.com/cosmos-digital/meteor-api.git']]])
+            checkout([$class: 'GitSCM', branches: [[name: 'origin/test']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '839539c2-0a78-4c53-a4b6-b71485543776', url: 'https://github.com/cosmos-digital/meteor-api.git']]])
             sh 'ls'
             dir('/data/php/api/www/meteor-api') {
               sh 'ls'

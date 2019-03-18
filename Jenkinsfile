@@ -17,7 +17,7 @@ pipeline {
           dir('./data/php/api/www') {
             sh 'git clone https://github.com/cosmos-digital/meteor-api.git -b test'
             sh 'ls'
-            dir('./data/php/api/www/meteor-api') {
+            dir('./meteor-api') {
               sh 'ls'
               sh label: 'returnStatus', returnStatus: true, returnStdout: true, script: 'composer install'
             }

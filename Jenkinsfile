@@ -7,7 +7,7 @@ pipeline {
           sh 'echo $GIT_BRANCH'
           sh 'echo $GIT_COMMIT'
           sh 'echo ${PWD}'
-          echo 'Building the docker images with the current git commit'
+          echo 'Building the docker images with the current git commit.'
         }
       }
     stage('INSTALL COMPOSER') {

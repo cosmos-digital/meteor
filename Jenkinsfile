@@ -1,9 +1,11 @@
 pipeline {
     agent any
     stages {
+      stage('Clear'){
+          cleanWs()
+      }
       stage('Build') {
         steps {
-          cleanWs()
           sh 'printenv'
           sh 'echo $GIT_BRANCH'
           sh 'echo $GIT_COMMIT'

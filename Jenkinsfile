@@ -26,7 +26,8 @@ pipeline {
               sh label: 'Composer...', returnStatus: true, returnStdout: true, script: 'composer install --ignore-platform-reqs --no-scripts'
             }
           }
-        }
+         sh 'cd ${ITEM_ROOTDIR}'
+         sh 'ls'
     }
     stage('Test') {
       steps {

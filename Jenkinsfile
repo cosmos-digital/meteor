@@ -19,7 +19,7 @@ pipeline {
             sh 'ls'
             dir('./meteor-api') {
               sh 'ls'
-              sh 'docker run --rm --interactive --volume $PWD:/app  composer install --ignore-platform-reqs --no-scripts'
+              sh label: 'Composer...', returnStatus: true, returnStdout: true, script: 'composer install --ignore-platform-reqs --no-scripts'
             }
           }
         }

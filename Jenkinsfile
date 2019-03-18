@@ -3,7 +3,7 @@ pipeline {
     stages {
       stage('Build') {
         steps {
-          cleanWs()
+         // cleanWs()
           sh 'printenv'
           sh 'echo $GIT_BRANCH'
           sh 'echo $GIT_COMMIT'

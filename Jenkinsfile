@@ -14,7 +14,7 @@ pipeline {
         steps{
           echo 'Deploying application'
           dir('./data/php/api/www/meteor-api') {
-            // sh 'git clone https://github.com/cosmos-digital/meteor-api.git -b test'
+            sh 'git clone https://github.com/cosmos-digital/meteor-api.git -b test'
             sh 'ls'
             dir('./meteor-api') {
               sh 'ls'

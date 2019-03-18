@@ -28,6 +28,7 @@ pipeline {
           }
          sh 'cd ${ITEM_ROOTDIR}'
          sh 'ls'
+        }
     }
     stage('Test') {
       steps {

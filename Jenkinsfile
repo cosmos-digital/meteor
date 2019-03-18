@@ -13,15 +13,14 @@ pipeline {
     stage('INSTALL COMPOSER') {
         steps{
           echo 'Deploying application'
-          dir('./data/php/api/www') {
-            sh 'git clone https://github.com/cosmos-digital/meteor-api.git -b test'
+          dir('./data/php/api/www/meteor-api') {
+            // sh 'git clone https://github.com/cosmos-digital/meteor-api.git -b test'
             sh 'ls'
             dir('./meteor-api') {
               sh 'ls'
               sh label: 'Composer...', returnStatus: true, returnStdout: true, script: 'composer install --ignore-platform-reqs --no-scripts'
             }
           }
-         sh 'cd ${ITEM_ROOTDIR}'
          sh 'ls'
         }
     }

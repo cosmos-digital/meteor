@@ -34,13 +34,13 @@ pipeline {
         sh 'docker-compose up -d'
       }
     }
-    stage('Push') {
-      agent any
-      steps {
-        echo 'Deploying application'
-        git(url: 'https://github.com/cosmos-digital/meteor-full.git', branch: 'jenkins', changelog: true, poll: true)
-      }
-    }
+    // stage('Push') {
+    //   agent any
+    //   steps {
+    //     echo 'Deploying application'
+    //     git(url: 'https://github.com/cosmos-digital/meteor-full.git', branch: 'jenkins', changelog: true, poll: true)
+    //   }
+    // }
   }
   environment {
     APP_VERSION = '1'

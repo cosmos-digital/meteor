@@ -14,7 +14,6 @@ pipeline {
           sh 'git clone https://github.com/cosmos-digital/meteor-api.git www'
           dir('./www') {
             sh 'git checkout master && git pull'
-            sh 'docker run --rm --volume $PWD:/app  composer install --ignore-platform-reqs --no-scripts'
             sh 'ls'
           }
         }
@@ -24,6 +23,10 @@ pipeline {
       steps{
         stash name: 'docker-stash', includes: '**'
         dir('/data/meteor') {
+          dir('./data/php/api/www'){
+            sh 'ls'
+            sh 'docker run --rm --volume $PWD:/app composer install --ignore-platform-reqs --no-scripts'
+          }
           unstash 'docker-stash'
           sh 'docker-compose up -d'
         }
@@ -32,6 +35,11 @@ pipeline {
   }
   post { 
     always { 
+      dir('./www') {
+            sh 'git checkout master && git pull'
+            sh 'docker run --rm --volume $PWD:/app  composer install --ignore-platform-reqs --no-scripts'
+            sh 'ls'
+          }
       cleanWs()
     }
   }

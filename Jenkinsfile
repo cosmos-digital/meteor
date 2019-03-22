@@ -14,7 +14,7 @@ pipeline {
           sh 'git clone https://github.com/cosmos-digital/meteor-api.git www'
           dir('./www') {
             sh 'git checkout master && git pull'
-            sh 'composer install --ignore-platform-reqs --no-scripts'
+            sh 'docker run --rm --interactive --tty  --volume $PWD:/app  composer install --ignore-platform-reqs --no-scripts'
             sh 'ls'
           }
         }

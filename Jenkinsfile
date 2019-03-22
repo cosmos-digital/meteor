@@ -23,6 +23,8 @@ pipeline {
         stash name: 'docker-stash', includes: '**'
         dir('/data/meteor') {
           unstash 'docker-stash'
+          sh 'echo $PWD'
+          sh 'ls'
           sh 'docker-compose up -d'
         }
       }

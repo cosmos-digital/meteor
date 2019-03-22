@@ -122,6 +122,19 @@ services:
     #   - nginx
     volumes:
       - ./data/php/api/www:/var/www:rw
+  
+  #Service Renponsible for INSTALL COMPOSER ON API SERVICE
+  composer:
+    image: composer
+    container_name: "composer"
+    depends_on:
+      - api
+    networks:
+      external:
+        ipv4_address: 10.2.0.104
+    volumes:
+      - ./data/php/api/www:/app:rw
+    command: 'composer install --ignore-platform-reqs --no-scripts'
 
   #Service Renponsible for WEB ClIENT SERVICES
   # web:

@@ -25,29 +25,21 @@ services:
         ipv4_address: 10.1.0.100
       external:
          ipv4_address: 10.2.0.100
-    # depends_on:
-    # - api
     links:
       - api
-    # volumes:
-    #   - ./data/nginx/certs:/etc/nginx/certs:rw
-    #   - /var/run/docker.sock:/tmp/docker.sock:ro
-#      - ./data/nginx/etc:/etc/nginx:rw
-      # - ./data/nginx/web:/web:rw
-    # environment:
-    #   VIRTUAL_HOST: meteor.cosmodigital.pt
-    # ports:
-    #   - "80:80"
-    #   - "443:443"
+    volumes:
+      - ./data/nginx/conf.d:/etc/nginx/conf.d:rw
+    ports:
+      - "80:80"
+      - "443:443"
 
   #Service Renponsible for MESSAGE QUEUE
   rabbitmq:
       image: cosmosdigital/rabbitmq
       container_name: "meteor_rabbitmq"
-      # deploy:
-      #   replicas: 2
-      #   restart_policy:
-      #     condition: on-failure
+      deploy:
+        restart_policy:
+          condition: on-failure
       networks:
         internal:
           ipv4_address: 10.1.0.101
@@ -68,9 +60,9 @@ services:
       POSTGRES_PASSWORD: m&t30R
       POSTGRES_USER: meteordb
       POSTGRES_DB: meteor
-    # deploy:
-    #   restart_policy:
-    #     condition: on-failure
+    deploy:
+      restart_policy:
+        condition: on-failure
     networks:
       internal:
         ipv4_address: 10.1.0.102
@@ -87,54 +79,38 @@ services:
     image: mongo
     container_name: "meteor_mongodb"
     environment:
-      MONGO_INITDB_ROOT_USERNAME: meteordb
-      MONGO_INITDB_ROOT_PASSWORD: m&t30R
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: dev
       MONGO_INITDB_DATABASE: meteor
-    # deploy:
-    #   restart_policy:
-    #     condition: on-failure
+    deploy:
+      restart_policy:
+        condition: on-failure
     networks:
       internal:
         ipv4_address: 10.1.0.103
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: dev
     volumes:
-        - ./data/mongodb/db:/data/db:rw
-        - ./data/mongodb/configdb:/data/configdb:rw  
-    command: "mongo --config /data/configdb/mongod.conf"    
+        - ./data/mongodb/db:/data/db:rw 
+    command: "mongod --auth"    
 
   #Service Renponsible for WEB ClIENT SERVICES
   api:
     image: cosmosdigital/php-v7
     container_name: "meteor_api"
-    # deploy:
-    #   restart_policy:
-    #     condition: on-failure
-    # depends_on:
-    #   - db
-    #   - rabbitmq
-    #   - mongodb
+    deploy:
+      restart_policy:
+        condition: on-failure
     networks:
       internal:
         ipv4_address: 10.1.0.104
-    # links:
-    #   - db
-    #   - rabbitmq
-    #   - mongodb
-    #   - nginx
+    links:
+      - db
+      - rabbitmq
+      - mongodb
     volumes:
       - ./data/php/api/www:/var/www:rw
-  
-    #Service Renponsible for WEB ClIENT SERVICES
-  composer:
-    image: composer
-    container_name: "composer"
-    depends_on:
-      - api
-    networks:
-      external:
-        ipv4_address: 10.2.0.105
-    volumes:
-      - ./data/php/api/www:/app:rw
-    command: 'composer install --ignore-platform-reqs --no-scripts'
 
   #Service Renponsible for WEB ClIENT SERVICES
   # web:

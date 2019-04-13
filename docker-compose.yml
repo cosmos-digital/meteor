@@ -131,5 +131,5 @@ services:
     volumes:
       - ./data/nodejs/client:/client:rw
     ports:
-      - "4200:80"
-    command: npm i && npm start
+      - "4200:4200"
+    command: ./server
